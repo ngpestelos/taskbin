@@ -80,7 +80,7 @@ h2 {
   padding: 10px;
 }
 
-#detail form {
+#detail div#new-task-form {
   padding: 4px;
   background-color: #eee;
 }
