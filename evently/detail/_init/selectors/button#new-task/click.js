@@ -3,14 +3,14 @@ function() {
   var task = $("#task-input").val();
   var project = $("#project-title").text();
   
-  var callback = function(res, doc) {
-    //alert(res.id);
+  var callback = function(doc) {    
+    var created_at = $.prettyDate(doc.created_at);
     
     var html = 
       "<li>" +
         "<div class=\"task\">" + task + "</div>" +
         "<div class=\"menu\">" +
-          "<em>just now</em>" +
+          "<em>" + created_at + "</em>" +
           "<a href=\"#\">Done</a>" +
         "</div>" +
       "</li>";

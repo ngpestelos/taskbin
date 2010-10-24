@@ -31,7 +31,11 @@
       };
       
       $.taskbin.app.db.saveDoc(newTask, {
-        success : function(res) { callback(res) },
+        success : function(res) {
+          $.taskbin.app.db.openDoc(res.id, {
+            success : function(doc) { callback(doc) }
+          });
+        },
         error : function() {
           alert("oops");
         }
