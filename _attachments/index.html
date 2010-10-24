@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My New CouchApp</title>
-    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <title>taskbin</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="960.css" />
+    <link rel="stylesheet" href="taskbin.css" />
+    <link rel="stylesheet" href="redmond/jquery-ui-1.8.1.custom.css" />
   </head>
   <body>
-    <div id="account"></div>
-
-    <h1>Generated CouchApp</h1>
-
-    <div id="profile"></div>
-    <div id="items"></div>
-
-    <div id="sidebar">
-      <p>Edit welcome message.</p>
-      <p>Ideas: You could easily turn this into a photo sharing app, or a grocery list, or a chat room.</p>
+    <div id="dialog-form" title="Create new project">
+      <form method="post">
+      	<fieldset>
+      		<label for="name">Name</label>
+      		<input type="text" size="30" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+      	</fieldset>
+      </form>      
     </div>
+    <div class="container_12">
+      <div class="grid_12">
+        <div id="navbar" class="shadow ui-corner-bottom">
+          <a href="#/">taskbin</a>
+        </div>
+      </div>
+      <div class="grid_4">
+        <div id="master" class="shadow ui-corner-all">
+          <div style="text-align: right" id="new-project">
+            <a id="new-project-link" href="#">New Project</a>
+          </div>
+          <ul id="project-list">
+            <li id="recent"><a href="#">Recent</a></li>            
+          </ul>
+        </div>
+      </div>
+      <div class="grid_8">
+      </div>
+    </div>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script src="jquery-ui-1.8.1.custom.min.js"></script>
+    <script src="taskbin.js"></script>
   </body>
-  <script src="vendor/couchapp/loader.js"></script>
-  <script type="text/javascript" charset="utf-8">
-    $.couch.app(function(app) {
-      $("#account").evently("account", app);
-      $("#profile").evently("profile", app);
-      $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
-      $("#items").evently("items", app);
-    });
-  </script>
 </html>
