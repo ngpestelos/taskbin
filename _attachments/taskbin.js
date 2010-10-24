@@ -40,6 +40,24 @@
           alert("oops");
         }
       });
+    },
+    
+    finishTask : function(id, callback) {
+      $.taskbin.app.db.openDoc(id, {
+        success : function(doc) {          
+          doc['updated_at'] = new Date();
+          doc['type'] = "done";
+
+          $.taskbin.app.db.saveDoc(doc, {
+            success : callback,
+            error : function() { alert('oops - unable to save'); }
+          });
+        },
+        
+        error : function() {
+          alert('oops');
+        }
+      });
     }
   });
   

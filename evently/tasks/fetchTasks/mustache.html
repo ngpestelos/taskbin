@@ -1,9 +1,9 @@
 {{#tasks}}
 <li>
-  <div class="task">{{{body}}}</div>
+  <div  class="task">{{{body}}}</div>
   <div class="menu">
     <em>{{{created_at}}}</em>
-    <a href="#">Done</a>
+    <a task-id={{{id}}} class="task-done" href="#">Done</a>
   </div>
 </li>
 {{/tasks}}
