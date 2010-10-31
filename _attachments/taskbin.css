@@ -1,7 +1,7 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
-  background-color: #eee;  
+  background-color: white;  
   overflow-y: scroll;
 }
 
@@ -66,6 +66,7 @@ h2 {
   margin-top: 20px;
   padding: 10px;
   background-color: #f8f8f8;
+  border: 1px solid #eee;
 }
 
 #master li {
@@ -76,6 +77,7 @@ h2 {
 
 #detail {
   background-color: #f8f8f8;
+  border: 1px solid #eee;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
@@ -102,6 +104,7 @@ h2 {
 }
 
 .menu {
+  font-size: 0.8em;
   margin-top: 5px;
   margin-right: 5px;
   text-align: right;
@@ -112,5 +115,5 @@ h2 {
 }
 
 .task {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
