@@ -1,5 +1,4 @@
 function(doc) {
-  if (doc.type == "task") {
-    emit([doc.project, doc.created_at], null);
-  }
+  if (doc.type === "task" && doc.status === "open")
+    emit(doc.created, null);
 }

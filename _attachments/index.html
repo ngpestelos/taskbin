@@ -2,49 +2,65 @@
 <html>
   <head>
     <title>taskbin</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="960.css" />
-    <link rel="stylesheet" href="taskbin.css" />
-    <link rel="stylesheet" href="redmond/jquery-ui-1.8.1.custom.css" />
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <link rel="stylesheet" href="vendor/960gs/960.css" type="text/css">
+    <style>
+      #new-task input {
+        width: 99%;
+        font-size: 16px;
+        border-radius: 4px;
+        padding: 2px;
+      }
+      
+      #tags div {
+        padding-left: 8px;
+      }
+      
+      .task {
+        font-size: 14px;
+        min-height: 20px;
+        border-radius: 4px;
+        background-color: #fffacd;
+        margin-bottom: 4px;
+        margin-right: 6px;
+        padding-top: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+      
+      #tags h3 {
+        padding-left: 8px;
+      }
+      
+      h3 {
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+      }
+      
+      .options {
+        float: right;
+        margin-right: 8px;
+        margin-top: 4px;
+        font-size: 10px;
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="dialog-form" title="Create new project">
-      <form method="post">
-      	<fieldset>
-      		<label for="name">Name</label>
-      		<input type="text" size="30" name="name" id="name" class="text ui-widget-content ui-corner-all" />
-      	</fieldset>
-      </form>      
-    </div>
     <div class="container_12">
-      <div class="grid_12">
-        <div id="navbar" class="shadow ui-corner-bottom">
-          <a href="#/">taskbin</a>
-        </div>
-      </div>
-      <div class="grid_4">
-        <div id="master" class="shadow ui-corner-all">
-          <div style="text-align: right" id="new-project">
-            <a id="new-project-link" href="#">New Project</a>
-          </div>
-          <ul id="project-list">
-          </ul>
-        </div>
-      </div>
-      <div class="grid_8">
-        <div id="detail" class="shadow ui-corner-all">
-          <h2 id="project-title"></h2>
-          <div id="new-task-form">
-            <input type="text" size="100" id="task-input" />
-            <button id="new-task">Add</button>
-          </div>
-          <ul id="task-list">
-          </ul>
-        </div>
-      </div>
+      <div class="grid_12"><a href="index.html">taskbin</a></div>
+      <div class="grid_12" id="new-task"></div>
+      <div class="grid_3" id="tags"></div>
+      <div class="grid_9" id="tasks"></div>
     </div>
-    <script src="vendor/couchapp/loader.js"></script>
-    <script src="jquery-ui-1.8.1.custom.min.js"></script>
-    <script src="taskbin.js"></script>
   </body>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.couch.app(function(app) {
+      $("#new-task").evently("new-task", app);
+      $("#tasks").evently("tasks", app);
+      $("#tags").evently("tags", app);
+      $("#tasks").pathbinder("tagged-tasks", "/tags/:tag");
+    });
+  </script>
 </html>

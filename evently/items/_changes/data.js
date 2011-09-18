@@ -1,10 +1,10 @@
 function(data) {
-  $.log(data)
+  // $.log(data)
   var p;
   return {
     items : data.rows.map(function(r) {
-      p = r.value.profile;
-      p.message = r.value.message;
+      p = (r.value && r.value.profile) || {};
+      p.message = r.value && r.value.message;
       return p;
     })
   }
